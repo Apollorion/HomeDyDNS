@@ -1,18 +1,35 @@
 image:
+  # -- Image repository to pull the HomeDyDNS image from
   repository: apollorion/homedydns
+
+  # -- K8s Image pull policy
   pullPolicy: IfNotPresent
+
+  # -- Tag to use from the repository
   tag: "latest"
 
 appConfig:
+  # -- API endpoint for getting your current IP address. This should ONLY return the ip address.
   apiEndpoint: "https://icanhazip.com/"
+
+  # -- How many minutes to sleep between each IP check
   sleepMin: "15"
+
+  # -- Domain TTL in Route53
   ttl: "300"
-  # domainName: Required! the domain name to update
-  # hostedZoneId: Required! the hosted zone id of the dns name to update
 
+  # -- Domain to update in Route53
+  domainName: ""
 
-# Required
-#aws:
-#  accessKeyId: "asdf"
-#  secretKeyId: "asdf"
-#  region: "asdf"
+  # -- Route53 hosted zone ID of the domain that is updated
+  hostedZoneId: ""
+
+aws:
+  # -- AWS Access Key ID with permission to update domain in hosted zone
+  accessKeyId: ""
+
+  # -- AWS Secret Key ID with permission to update domain in hosted zone
+  secretKeyId: ""
+
+  # -- AWS default region for boto3
+  region: ""
