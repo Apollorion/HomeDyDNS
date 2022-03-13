@@ -1,0 +1,18 @@
+image:
+  repository: apollorion/homedydns
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+appConfig:
+  apiEndpoint: "https://icanhazip.com/"
+  sleepMin: "15"
+  ttl: "300"
+  # domainName: Required! the domain name to update
+  # hostedZoneId: Required! the hosted zone id of the dns name to update
+
+
+# Required
+# aws:
+#   accessKeyId: "asdf"
+#   secretKeyId: "asdf"
+#   region: "asdf"

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "homedydns.fullname" . }}
+spec:
+  template:
+    metadata:
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: "API_ENDPOINT"
+              value: {{ .Values.appConfig.apiEndpoint }}
+            - name: "SLEEP_MIN"
+              value: {{ .Values.appConfig.sleepMin }}
+            - name: "TTL"
+              value: {{ .Values.appConfig.ttl }}
+            - name: "DOMAIN_NAME"
+              value: {{ required "Domain name to update with home ip" .Values.appConfig.domainName }}
+            - name: "HOSTED_ZONE_ID"
+              value: {{ required "Must provide a hosted zone id from route53" .Values.appConfig.hostedZoneId }}
+            - name: "AWS_ACCESS_KEY_ID"
+              valueFrom:
+                secretKeyRef:
+                  key: AWS_ACCESS_KEY_ID
+                  name: {{ include "homedydns.fullname" . }}-aws
+            - name: "AWS_SECRET_ACCESS_KEY"
+              valueFrom:
+                secretKeyRef:
+                  key: AWS_SECRET_ACCESS_KEY
+                  name: {{ include "homedydns.fullname" . }}-aws
+            - name: "AWS_DEFAULT_REGION"
+              valueFrom:
+                secretKeyRef:
+                  key: AWS_DEFAULT_REGION
+                  name: {{ include "homedydns.fullname" . }}-aws
