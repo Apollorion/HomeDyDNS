@@ -18,11 +18,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: "API_ENDPOINT"
-              value: {{ .Values.appConfig.apiEndpoint }}
+              value: "{{ .Values.appConfig.apiEndpoint }}"
             - name: "SLEEP_MIN"
-              value: {{ .Values.appConfig.sleepMin }}
+              value: "{{ .Values.appConfig.sleepMin }}"
             - name: "TTL"
-              value: {{ .Values.appConfig.ttl }}
+              value: "{{ .Values.appConfig.ttl }}"
             - name: "DOMAIN_NAME"
               value: {{ required "Domain name to update with home ip" .Values.appConfig.domainName }}
             - name: "HOSTED_ZONE_ID"
