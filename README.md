@@ -1,5 +1,5 @@
 # HomeDyDns
-[![ci](https://github.com/Apollorion/HomeDyDNS/actions/workflows/ci.yaml/badge.svg)](https://github.com/Apollorion/HomeDyDNS/actions/workflows/ci.yaml)
+[![ci](https://github.com/Apollorion/HomeDyDNS/actions/workflows/ci.yaml/badge.svg)](https://github.com/Apollorion/HomeDyDNS/actions/workflows/ci.yaml)  
 Dynamic DNS service that can run on a home kubernetes cluster to update route 53
 
 # Installing
