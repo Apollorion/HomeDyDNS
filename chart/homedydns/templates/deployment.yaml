@@ -1,3 +1,4 @@
+{{ $fullName := include "homedydns.fullname" . }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -30,14 +31,14 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: AWS_ACCESS_KEY_ID
-                  name: {{ include "homedydns.fullname" . }}-aws
+                  name: "{{ $fullName }}-aws"
             - name: "AWS_SECRET_ACCESS_KEY"
               valueFrom:
                 secretKeyRef:
                   key: AWS_SECRET_ACCESS_KEY
-                  name: {{ include "homedydns.fullname" . }}-aws
+                  name: "{{ $fullName }}-aws"
             - name: "AWS_DEFAULT_REGION"
               valueFrom:
                 secretKeyRef:
                   key: AWS_DEFAULT_REGION
-                  name: {{ include "homedydns.fullname" . }}-aws
+                  name: "{{ $fullName }}-aws"
