@@ -2,4 +2,4 @@ apiVersion: v2
 name: homedydns
 description: A Helm chart for Updating route53 with your home ip address
 type: application
-version: 1.0.0
+version: 1.0.1

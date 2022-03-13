@@ -3,8 +3,13 @@ kind: Deployment
 metadata:
   name: {{ include "homedydns.fullname" . }}
 spec:
+  selector:
+    matchLabels:
+      app: {{ include "homedydns.fullname" . }}
   template:
     metadata:
+      labels:
+        app: {{ include "homedydns.fullname" . }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
