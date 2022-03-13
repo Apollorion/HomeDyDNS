@@ -19,7 +19,7 @@ def main():
     while True:
         r = requests.get(API_ENDPOINT)
         if r.status_code == 200:
-            if r.text != last_ip:
+            if r.text.strip() != last_ip:
                 last_ip = r.text.strip()
                 print("Updating to " + last_ip)
                 request = {
@@ -53,6 +53,8 @@ def main():
                         ChangeBatch=request
                     )
                 print("Success!")
+            else:
+                print(f"IP address has not changed {last_ip}, doing nothing....")
         else:
             print("Bad Request!")
 
