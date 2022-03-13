@@ -12,7 +12,7 @@ appConfig:
 
 
 # Required
-# aws:
-#   accessKeyId: "asdf"
-#   secretKeyId: "asdf"
-#   region: "asdf"
+#aws:
+#  accessKeyId: "asdf"
+#  secretKeyId: "asdf"
+#  region: "asdf"
